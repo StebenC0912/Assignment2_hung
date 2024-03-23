@@ -1,20 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import MealNavigation from "./src/navigation/MealNavigation";
+import { Provider } from "react-redux";
+import { createStore , combineReducers } from "redux";
+import mealReducer from "./src/store/reducers/Meals";
+const rootReducer = combineReducers({
+  meals: mealReducer,
+});
+const store = createStore(rootReducer);
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <MealNavigation />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
