@@ -1,0 +1,5 @@
+1. download folder
+2. run "npm install"
+3. run "npm start"
+4. open expo go and scan qr
+5. run success
